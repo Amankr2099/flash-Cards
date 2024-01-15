@@ -1,46 +1,13 @@
 import { useState } from "react";
 import Card from "../Components/Card";
-import Profile from "../Components/Profile";
-import Signup from "./Signup";
-import NewCard from "../Components/NewCard";
 
 
-export default function Home() {
 
-  const [cardArr, setCardArr] = useState([
-    {
-      id:1,
-      category: "Physics",
-      question: "What is the speed of light?",
-      answer:
-        "The speed of light in a vacuum is approximately 299,792 kilometers per second (km/s).",
-    },
-    {
-      id:2,
-      category: "Biology",
-      question: "What is the process of photosynthesis?",
-      answer:
-        "Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll pigments.",
-    },
-    {
-      id:3,
-      category: "Chemistry",
-      question: "What is the periodic table?",
-      answer:
-        "The periodic table is a tabular arrangement of chemical elements, organized based on their atomic number, electron configuration, and recurring chemical properties.",
-    },
-    {
-      id:4,
-      category: "Chemistry",
-      question: "What is a chemical reaction?",
-      answer:
-        "A chemical reaction is a process that leads to the transformation of one set of chemical substances to another set, involving the breaking and forming of chemical bonds.",
-    },
-  ]);
-  const [cardCategory,setCardcategory] = useState(["Physics","Biology","Chemistry"])
+export default function Home({cardArr,setCardArr,cardCategory}) {
+
+  
   const [category, setCategory] = useState("All");
 
-  const cardCount = Object.keys(cardArr).length
 
   const handleOpt = (event) => {
     const { value } = event.target;
@@ -64,9 +31,7 @@ export default function Home() {
 
   return (
     <>
-      <NewCard cardArr={cardArr} cardCategory={cardCategory}/>
-      <Profile cardCount={cardCount}/>
-    <Signup/>
+      
       <div className="container ">
         <div className="w-100 text-center">
           <select
@@ -91,6 +56,7 @@ export default function Home() {
             ))}
         </div>
       </div>
+
     </>
   );
 }

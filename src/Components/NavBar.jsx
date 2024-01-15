@@ -1,5 +1,3 @@
-import Signup from "../Pages/Signup";
-import Profile from "./Profile";
 import { appContext } from "./ContextAPI/myContext";
 import { useContext} from "react";
 
@@ -35,7 +33,7 @@ export default function NavBar() {
           </button>
 
           <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-            <li><a className="dropdown-item active" href="#profile" data-bs-toggle="modal" data-bs-target="#profile">Profile</a></li>
+            <li><a className="dropdown-item active" href="/profile" data-bs-toggle="modal" data-bs-target="#profile">Profile</a></li>
             <li><a className="dropdown-item" href="#">Setting</a></li>
             {
               (!user.auth) && 
@@ -45,7 +43,7 @@ export default function NavBar() {
         </div>
       </div>
     </nav>
-    
+   
     
 </>
 
