@@ -5,7 +5,6 @@ import Card from "../Components/Card";
 
 export default function Home({cardArr,setCardArr,cardCategory}) {
 
-  
   const [category, setCategory] = useState("All");
 
 

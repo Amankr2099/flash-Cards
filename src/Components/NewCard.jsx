@@ -21,9 +21,9 @@ export default function NewCard({ cardArr, cardCategory }) {
   const resetForm = () => {
     setCard({
       category: "",
-      question: "",
-      answer: "",
-    });
+    question: "",
+    answer: "",}
+    )
   };
 
   const addCard = (event) => {
@@ -32,7 +32,7 @@ export default function NewCard({ cardArr, cardCategory }) {
     if (!cardCategory.includes(card.category)) {
       cardCategory.push(card.category);
     }
-    resetForm()
+   resetForm()
   };
 
   return (
@@ -55,6 +55,7 @@ export default function NewCard({ cardArr, cardCategory }) {
               list="options"
               onChange={handleUpdate}
               name="category"
+              value={card.category}
             />
             <datalist className="text-center" id="options">
               {cardCategory &&
@@ -71,6 +72,7 @@ export default function NewCard({ cardArr, cardCategory }) {
               name="question"
               value={card.question}
               onChange={handleUpdate}
+
             />
             <input
               className="mt-3 text-center"
@@ -80,6 +82,7 @@ export default function NewCard({ cardArr, cardCategory }) {
               name="answer"
               value={card.answer}
               onChange={handleUpdate}
+
             />
           </div>
           <div className="modal-footer d-flex justify-content-around">
@@ -91,14 +94,14 @@ export default function NewCard({ cardArr, cardCategory }) {
               ></i>
             </button>
 
-            <button onClick={resetForm} type="reset" className="btn">
+            <button onClick={resetForm}  type="reset" className="btn">
               <i
                 className="fa-solid fa-arrows-rotate"
                 style={{ color: "#2068bb" }}
               ></i>
             </button>
 
-            <button type="button" className="btn">
+            <button type="button"  className="btn">
               <i
                 className="fa-solid fa-xmark"
                 style={{ color: "#2068bb" }}

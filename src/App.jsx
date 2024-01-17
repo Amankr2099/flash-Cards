@@ -2,13 +2,19 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './Pages/Home'
 import NavBar from './Components/NavBar'
 import Footer from './Components/Footer'
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import Profile from './Components/Profile';
 import NewCard from './Components/NewCard';
 import Signup from './Pages/Signup';
+import { appContext } from './Components/ContextAPI/myContext';
 
 function App() {
+  // const {cardCount , setcardCount} = useContext(appContext)
+  // useEffect(()=>{
+  //   setcardCount(Object.keys(cardArr).length)
+  
+  //   })
   const [cardArr, setCardArr] = useState([
     {
       id:1,
@@ -40,14 +46,15 @@ function App() {
     },
   ]);
   const [cardCategory,setCardcategory] = useState(["Physics","Biology","Chemistry"])
-  const cardCount = Object.keys(cardArr).length
+  
+ 
 
 
   return (
     <BrowserRouter>
       <NavBar />
       <NewCard cardArr={cardArr} cardCategory={cardCategory}/>
-      <Profile cardCount={cardCount} />
+      <Profile  />
       <Signup/>
       <Routes>
         <Route path='/flash-Cards/' element={<Home  cardArr={cardArr} setCardArr={setCardArr} cardCategory={cardCategory} />} />

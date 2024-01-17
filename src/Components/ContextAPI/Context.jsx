@@ -7,6 +7,7 @@ import { appContext } from "./myContext";
 
 export const ContextProvider = ({ children }) => {
     const [theme,setTheme] = useState()
+    const [cardCount,setcardCount] = useState(0)
     const [user,setUser ] = useState({
         username:"",
         userEmail : "",
@@ -22,7 +23,8 @@ export const ContextProvider = ({ children }) => {
                 setUser,
                 theme,
                 setTheme,
-                
+                cardCount,
+                setcardCount
             }}
         >
             {children}

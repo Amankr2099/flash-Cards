@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { appContext } from "./ContextAPI/myContext";
 
-export default function Profile({cardCount}) {
+export default function Profile() {
   const { user, setUser } = useContext(appContext);
 
   return (
@@ -20,13 +20,20 @@ export default function Profile({cardCount}) {
               style={{margin:"auto"}}
             />
           <div className="modal-body text-center text-white bg-primary rounded">
+            {
+              (!user.auth) &&
+              <div className="p-3">
+              <h4>Guest User</h4>
+              </div>
+            }
             {user.auth && (
               <div className="p-3">
                 <h4>Username : {user.username}</h4>
                 <h4>Email : {user.userEmail}</h4>
               </div>
             )}
-            <h5>You have total {cardCount} cards</h5>
+            
+            {/* <h5>You have total {cardCount} cards</h5> */}
           </div>
         </div>
       </div>
