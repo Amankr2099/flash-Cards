@@ -23,21 +23,7 @@ export default function Footer() {
         data-mdb-ripple-color="dark"
         ><i className="fab fa-google" /></a>
 
-      <a
-        data-mdb-ripple-init
-        className="btn btn-link btn-floating btn-lg text-body m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i className="fab fa-instagram"/></a>
 
-      <a
-        data-mdb-ripple-init
-        className="btn btn-link btn-floating btn-lg text-body m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i className="fab fa-linkedin"/></a>
       <a
         data-mdb-ripple-init
         className="btn btn-link btn-floating btn-lg text-body m-1"
@@ -49,7 +35,7 @@ export default function Footer() {
   </div>
 
   <div className="text-center p-4">
-  &copy; {date.getFullYear()} Company, Inc. All rights reserved
+  &copy; {date.getFullYear()} Company, Inc. All rights reserved to
     <a className="text-body" href="#"> FlashCard</a>
   </div>
 </footer>

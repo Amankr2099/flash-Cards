@@ -2,63 +2,21 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './Pages/Home'
 import NavBar from './Components/NavBar'
 import Footer from './Components/Footer'
-import { useContext, useEffect, useState } from 'react';
 
 import Profile from './Components/Profile';
 import NewCard from './Components/NewCard';
 import Signup from './Pages/Signup';
-import { appContext } from './Components/ContextAPI/myContext';
 
 function App() {
-  // const {cardCount , setcardCount} = useContext(appContext)
-  // useEffect(()=>{
-  //   setcardCount(Object.keys(cardArr).length)
-  
-  //   })
-  const [cardArr, setCardArr] = useState([
-    {
-      id:1,
-      category: "Physics",
-      question: "What is the speed of light?",
-      answer:
-        "The speed of light in a vacuum is approximately 299,792 kilometers per second (km/s).",
-    },
-    {
-      id:2,
-      category: "Biology",
-      question: "What is the process of photosynthesis?",
-      answer:
-        "Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll pigments.",
-    },
-    {
-      id:3,
-      category: "Chemistry",
-      question: "What is the periodic table?",
-      answer:
-        "The periodic table is a tabular arrangement of chemical elements, organized based on their atomic number, electron configuration, and recurring chemical properties.",
-    },
-    {
-      id:4,
-      category: "Chemistry",
-      question: "What is a chemical reaction?",
-      answer:
-        "A chemical reaction is a process that leads to the transformation of one set of chemical substances to another set, involving the breaking and forming of chemical bonds.",
-    },
-  ]);
-  const [cardCategory,setCardcategory] = useState(["Physics","Biology","Chemistry"])
-  
- 
-
 
   return (
     <BrowserRouter>
       <NavBar />
-      <NewCard cardArr={cardArr} cardCategory={cardCategory}/>
+      <NewCard />
       <Profile  />
       <Signup/>
       <Routes>
-        <Route path='/flash-Cards/' element={<Home  cardArr={cardArr} setCardArr={setCardArr} cardCategory={cardCategory} />} />
-
+        <Route path='/flash-Cards/' element={<Home />} />
       </Routes>
       <Footer />
     </BrowserRouter>
@@ -66,5 +24,3 @@ function App() {
 }
 
 export default App
-
-// cardArr={cardArr} setCardArr={setCardArr} cardCategory={cardCategory}

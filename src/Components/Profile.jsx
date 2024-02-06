@@ -1,8 +1,9 @@
 import { useContext } from "react";
-import { appContext } from "./ContextAPI/myContext";
+import { CardContext, UserContext } from "./ContextAPI/appContext";
 
 export default function Profile() {
-  const { user, setUser } = useContext(appContext);
+  const { user } = useContext(UserContext);
+  const {cardArray} = useContext(CardContext)
 
   return (
     <div className="modal fade" tabIndex={-1} id="profile">
@@ -33,7 +34,7 @@ export default function Profile() {
               </div>
             )}
             
-            {/* <h5>You have total {cardCount} cards</h5> */}
+            <h5>You have total {Object.keys(cardArray).length} cards</h5>
           </div>
         </div>
       </div>

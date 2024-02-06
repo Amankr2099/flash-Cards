@@ -1,32 +1,26 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Card from "../Components/Card";
+import { CardContext } from "../Components/ContextAPI/appContext";
 
 
 
-export default function Home({cardArr,setCardArr,cardCategory}) {
+export default function Home() {
 
-  const [category, setCategory] = useState("All");
+  const {cardCategory,cardArray} = useContext(CardContext);
 
+  const [categoryName, setcategoryName] = useState("All");
 
-  const handleOpt = (event) => {
+  const handlefilter = (event) => {
     const { value } = event.target;
-    setCategory(value);
+    setcategoryName(value);
   };
 
-  const catCard = cardArr.filter((card) => {
-    if (category == "All") {
+  const filteredCard = cardArray.filter((card) => {
+    if (categoryName == "All") {
       return card;
     }
-    return card.category == category;
+    return card.category == categoryName;
   });
-
-  const removeCard = (id)=>{
-    setCardArr((preCards)=>{
-      return preCards.filter((item)=>{
-        return item.id != id
-      })
-    })
-  }
 
   return (
     <>
@@ -37,8 +31,8 @@ export default function Home({cardArr,setCardArr,cardCategory}) {
             className="form-select m-3 text-center btn btn-light"
             aria-label="Default select example"
             name="category"
-            onChange={handleOpt}
-            value={category}
+            onChange={handlefilter}
+            value={categoryName}
           >
             <option>All</option>
             {cardCategory &&
@@ -49,9 +43,9 @@ export default function Home({cardArr,setCardArr,cardCategory}) {
         </div> 
 
         <div className="d-flex flex-wrap justify-content-around">
-          {catCard &&
-            catCard.map((card, index) => (
-              <Card card={card} key={index} removeRequest={removeCard} cardArr={cardArr} />
+          {filteredCard &&
+            filteredCard.map((card, index) => (
+              <Card card={card} key={index} />
             ))}
         </div>
       </div>

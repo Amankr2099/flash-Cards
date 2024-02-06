@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import  { useContext, useState } from "react";
+import { CardContext } from "./ContextAPI/appContext";
 
-export default function NewCard({ cardArr, cardCategory }) {
+export default function NewCard() {
+  const {cardArray,setCardArray,cardCategory,setCardCategory} = useContext(CardContext)
+
   const [card, setCard] = useState({
-    id: Object.keys(cardArr).length + 1,
+    id: Object.keys(cardArray).length + 1,
     category: "",
     question: "",
     answer: "",
   });
-
+ 
   const handleUpdate = (event) => {
     const { name, value } = event.target;
     setCard((preValue) => {
@@ -18,21 +21,30 @@ export default function NewCard({ cardArr, cardCategory }) {
     });
   };
 
-  const resetForm = () => {
+
+  const resetForm = () => { 
     setCard({
       category: "",
-    question: "",
-    answer: "",}
+      question: "",
+      answer: "",
+    }
     )
   };
 
   const addCard = (event) => {
     event.preventDefault();
-    cardArr.push(card);
+    setCardArray((preCards)=>{
+      return [...preCards,card];
+    });
+
+    // cardArray.push(card);
     if (!cardCategory.includes(card.category)) {
-      cardCategory.push(card.category);
-    }
-   resetForm()
+      setCardCategory((preCategory)=>{
+        return [...preCategory,card.category]
+      })
+      // cardCategory.push(card.category);
+    } 
+    resetForm()
   };
 
   return (

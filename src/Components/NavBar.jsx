@@ -1,10 +1,11 @@
-import { appContext } from "./ContextAPI/myContext";
+import { UserContext } from "./ContextAPI/appContext";
+// import { appContext } from "./ContextAPI/myContext";
 import { useContext} from "react";
 
 
 
 export default function NavBar() {
-  const { user, setUser } = useContext(appContext);
+  const { user } = useContext(UserContext);
 
   return (
     <>

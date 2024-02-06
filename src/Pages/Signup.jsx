@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
-import { appContext } from "../Components/ContextAPI/myContext";
+import { UserContext } from "../Components/ContextAPI/appContext";
+// import { appContext } from "../Components/ContextAPI/myContext";
 
 export default function Signup() {
-  const { user, setUser } = useContext(appContext);
+  const { setUser } = useContext(UserContext);
 
   const [currentUsername, setCurrentUser] = useState("");
   const [currentEmail, setCurrentEmail] = useState("");
